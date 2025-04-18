@@ -38,8 +38,8 @@ https://desaparecidos-api.pcivil.rj.gov.br/
 
 ```bash
 # Clonar o repositório
-git clone [URL_DO_REPOSITORIO]
-cd missin-person-rj
+git clone https://github.com/MiguelMachado-dev/missing-persons-rj.git
+cd missing-persons-rj
 
 # Instalar dependências
 npm install
@@ -75,7 +75,3 @@ Os arquivos para produção serão gerados na pasta `dist/`.
 - `/src/types` - Definições de tipos TypeScript
 - `/src/assets` - Imagens e outros recursos estáticos
 - `/src/styles` - Estilos globais
-
-## Licença
-
-[Incluir informações sobre a licença]
