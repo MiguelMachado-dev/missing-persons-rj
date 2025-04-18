@@ -21,7 +21,7 @@ const MissingList: React.FC = () => {
   const [selectedPersonId, setSelectedPersonId] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
-  const { data, isLoading, isError, isLoadingError } = useMissingPersons(
+  const { data, isLoading } = useMissingPersons(
     currentPage,
     pageSize,
     searchQuery
@@ -30,9 +30,6 @@ const MissingList: React.FC = () => {
   const totalPages = apiData?.totalPages ?? 0;
   const totalRecords = apiData?.totalRecords ?? 0;
   const persons = apiData?.content ?? [];
-
-  console.log(isError);
-  console.log(isLoadingError);
 
   const detailQuery = useMissingPersonDetail(selectedPersonId);
   const { data: eyeColors = [], isLoading: eyeLoading } = useEyeColors();

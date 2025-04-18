@@ -1,9 +1,6 @@
 import React from "react";
 
 const Footer: React.FC = () => {
-  const today = new Date();
-  const formattedDate = today.toLocaleDateString("pt-BR");
-
   return (
     <footer className="bg-white/10 dark:bg-gray-900/30 border-t border-cyan-400/20 py-8 mt-auto backdrop-blur-xl w-full">
       <div className="container mx-auto px-4">
@@ -14,7 +11,7 @@ const Footer: React.FC = () => {
               Miguel Machado usando a API do Governo do Rio de Janeiro.
             </p>
             <p className="text-cyan-200/70 text-xs mt-2">
-              Última vez editado: {formattedDate}
+              Última vez editado: 18/04/2025
             </p>
           </div>
           <a
