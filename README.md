@@ -1,54 +1,81 @@
-# React + TypeScript + Vite
+# Sistema de Pessoas Desaparecidas - RJ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web para visualização e busca de dados de pessoas desaparecidas no estado do Rio de Janeiro.
 
-Currently, two official plugins are available:
+## Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto utiliza a API oficial de pessoas desaparecidas da Polícia Civil do Rio de Janeiro para apresentar informações sobre pessoas que estão atualmente desaparecidas. A aplicação permite:
 
-## Expanding the ESLint configuration
+- Visualizar uma lista paginada de pessoas desaparecidas
+- Buscar pessoas pelo nome
+- Ver detalhes completos de cada pessoa desaparecida
+- Interface responsiva e amigável
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tecnologias Utilizadas
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **React 19** - Biblioteca JavaScript para construção de interfaces
+- **TypeScript** - Superset JavaScript tipado
+- **Vite** - Build tool e dev server
+- **TanStack Query** - Gerenciamento de estado e cache para dados remotos
+- **Tailwind CSS 4** - Framework CSS para estilização
+- **Lucide React** - Biblioteca de ícones
+
+## API
+
+A aplicação consome dados da API oficial de desaparecidos da Polícia Civil do RJ:
+```
+https://desaparecidos-api.pcivil.rj.gov.br/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Como Executar
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Requisitos
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- Node.js (versão 18 ou superior)
+- npm ou yarn
+
+### Instalação
+
+```bash
+# Clonar o repositório
+git clone [URL_DO_REPOSITORIO]
+cd missin-person-rj
+
+# Instalar dependências
+npm install
+# ou
+yarn
 ```
+
+### Execução em Desenvolvimento
+
+```bash
+npm run dev
+# ou
+yarn dev
+```
+
+A aplicação estará disponível em `http://localhost:5173/`
+
+### Build para Produção
+
+```bash
+npm run build
+# ou
+yarn build
+```
+
+Os arquivos para produção serão gerados na pasta `dist/`.
+
+## Estrutura do Projeto
+
+- `/src/components` - Componentes React
+- `/src/hooks` - Custom React hooks para busca de dados
+- `/src/api` - Funções para comunicação com a API
+- `/src/types` - Definições de tipos TypeScript
+- `/src/assets` - Imagens e outros recursos estáticos
+- `/src/styles` - Estilos globais
+
+## Licença
+
+[Incluir informações sobre a licença]
