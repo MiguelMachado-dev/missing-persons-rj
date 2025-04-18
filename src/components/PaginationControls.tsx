@@ -42,7 +42,9 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
     <div className="flex justify-center overflow-x-auto py-2 px-1 w-full max-w-full">
       <div className="flex space-x-1 sm:space-x-2">
         <PageButton
-          onClick={() => setCurrentPage(0)}
+          onClick={() => {
+            setCurrentPage(0);
+          }}
           disabled={currentPage === 0}
           className={`hidden sm:flex ${
             currentPage === 0
@@ -54,26 +56,30 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
           <ChevronLeft size={14} className="-ml-3" />
         </PageButton>
         <PageButton
-          onClick={() => setCurrentPage(Math.max(currentPage - 1, 0))}
+          onClick={() => {
+            setCurrentPage(Math.max(currentPage - 1, 0));
+          }}
           disabled={currentPage === 0}
-          className={`${
+          className={
             currentPage === 0
               ? "opacity-50 cursor-not-allowed"
               : "cursor-pointer"
-          }`}
+          }
         >
           <ChevronLeft size={16} />
         </PageButton>
         {pageNumbers.map((page) => (
           <PageButton
             key={page}
-            onClick={() => setCurrentPage(page)}
+            onClick={() => {
+              setCurrentPage(page);
+            }}
             disabled={page === currentPage}
-            className={`${
+            className={
               page === currentPage
                 ? "opacity-50 cursor-not-allowed"
                 : "cursor-pointer"
-            }`}
+            }
           >
             <span
               className={
@@ -87,20 +93,22 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
           </PageButton>
         ))}
         <PageButton
-          onClick={() =>
-            setCurrentPage(Math.min(currentPage + 1, totalPages - 1))
-          }
+          onClick={() => {
+            setCurrentPage(Math.min(currentPage + 1, totalPages - 1));
+          }}
           disabled={currentPage === totalPages - 1 || totalPages === 0}
-          className={`${
+          className={
             currentPage === totalPages - 1 || totalPages === 0
               ? "opacity-50 cursor-not-allowed"
               : "cursor-pointer"
-          }`}
+          }
         >
           <ChevronRight size={16} />
         </PageButton>
         <PageButton
-          onClick={() => setCurrentPage(totalPages - 1)}
+          onClick={() => {
+            setCurrentPage(totalPages - 1);
+          }}
           disabled={currentPage === totalPages - 1 || totalPages === 0}
           className={`hidden sm:flex ${
             currentPage === totalPages - 1 || totalPages === 0

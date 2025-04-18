@@ -6,7 +6,6 @@ import {
   useSkinColors,
   useHairColors,
 } from "../hooks";
-import type { ApiResponse } from "../types";
 import Header from "./Header";
 import PaginationControls from "./PaginationControls";
 import PersonList from "./PersonList";
@@ -27,10 +26,10 @@ const MissingList: React.FC = () => {
     pageSize,
     searchQuery
   );
-  const apiData = data as ApiResponse | undefined;
-  const totalPages = apiData?.totalPages || 0;
-  const totalRecords = apiData?.totalRecords || 0;
-  const persons = apiData?.content || [];
+  const apiData = data;
+  const totalPages = apiData?.totalPages ?? 0;
+  const totalRecords = apiData?.totalRecords ?? 0;
+  const persons = apiData?.content ?? [];
 
   console.log(isError);
   console.log(isLoadingError);
@@ -51,7 +50,9 @@ const MissingList: React.FC = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -60,7 +61,9 @@ const MissingList: React.FC = () => {
         if (e.key === "Escape") setSelectedPersonId(null);
       };
       window.addEventListener("keydown", handleEsc);
-      return () => window.removeEventListener("keydown", handleEsc);
+      return () => {
+        window.removeEventListener("keydown", handleEsc);
+      };
     }
   }, [selectedPersonId]);
 
@@ -119,7 +122,9 @@ const MissingList: React.FC = () => {
             persons={persons}
             isLoading={isLoading}
             searchQuery={searchQuery}
-            onViewDetails={(id) => setSelectedPersonId(id)}
+            onViewDetails={(id) => {
+              setSelectedPersonId(id);
+            }}
             onClearSearch={handleClearSearch}
           />
 
@@ -144,7 +149,9 @@ const MissingList: React.FC = () => {
             eyeColors={eyeColors}
             hairColors={hairColors}
             skinColors={skinColors}
-            onClose={() => setSelectedPersonId(null)}
+            onClose={() => {
+              setSelectedPersonId(null);
+            }}
           />
         )}
 
