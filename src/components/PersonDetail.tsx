@@ -25,7 +25,9 @@ const PersonDetail: React.FC<PersonDetailProps> = ({
 
   useEffect(() => {
     setIsOpen(true);
-    return () => setIsOpen(false);
+    return () => {
+      setIsOpen(false);
+    };
   }, []);
 
   const handleClose = () => {
@@ -46,7 +48,9 @@ const PersonDetail: React.FC<PersonDetailProps> = ({
         }`}
       />
       <section
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
         className={`relative z-10 bg-white/20 dark:bg-gray-900/60 rounded-3xl p-0 w-full max-w-md max-h-[90vh] overflow-y-auto shadow-2xl border border-cyan-400/40 backdrop-blur-2xl flex flex-col items-center transition-all duration-300 ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0"

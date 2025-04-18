@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import type { ApiResponse, MissingPersonDetail } from "../types";
 import {
   fetchMissingPersons,
   fetchMissingPersonDetail,
@@ -13,33 +12,36 @@ export const useMissingPersons = (
   pageSize: number,
   search?: string
 ) =>
-  useQuery<ApiResponse, Error>({
+  useQuery({
     queryKey: ["missingPersons", page, pageSize, search],
     queryFn: () => fetchMissingPersons(page, pageSize, search),
     placeholderData: undefined,
   });
 
 export const useMissingPersonDetail = (id: number | null) =>
-  useQuery<MissingPersonDetail, Error>({
+  useQuery({
     queryKey: ["personDetail", id],
-    queryFn: () => fetchMissingPersonDetail(id!),
+    queryFn: () => {
+      if (id === null) throw new Error("ID cannot be null");
+      return fetchMissingPersonDetail(id);
+    },
     enabled: id != null,
   });
 
 export const useEyeColors = () =>
-  useQuery<{ id: number; desc: string }[], Error>({
+  useQuery({
     queryKey: ["eyeColors"],
     queryFn: fetchEyeColors,
   });
 
 export const useSkinColors = () =>
-  useQuery<{ id: number; desc: string }[], Error>({
+  useQuery({
     queryKey: ["skinColors"],
     queryFn: fetchSkinColors,
   });
 
 export const useHairColors = () =>
-  useQuery<{ id: number; desc: string }[], Error>({
+  useQuery({
     queryKey: ["hairColors"],
     queryFn: fetchHairColors,
   });

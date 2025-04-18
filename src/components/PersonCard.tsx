@@ -1,3 +1,4 @@
+import React from "react";
 import type { MissingPerson } from "../types";
 
 const PersonCard: React.FC<{
@@ -53,7 +54,9 @@ const PersonCard: React.FC<{
       </div>
       <div className="mt-6">
         <button
-          onClick={() => onViewDetails(person.id)}
+          onClick={() => {
+            onViewDetails(person.id);
+          }}
           className="w-full py-2 px-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-700 text-white rounded-xl transition-all duration-300 text-base font-bold cursor-pointer shadow-lg tracking-wide backdrop-blur-md border border-cyan-400/40 hover:border-cyan-400/80"
         >
           Ver detalhes

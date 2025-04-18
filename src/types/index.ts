@@ -1,4 +1,4 @@
-export type MissingPerson = {
+export interface MissingPerson {
   id: number;
   name: string;
   age: number;
@@ -6,9 +6,9 @@ export type MissingPerson = {
   isSocialPic: boolean;
   isFound: boolean;
   isDead: boolean;
-};
+}
 
-export type MissingPersonDetail = {
+export interface MissingPersonDetail {
   id: number;
   name: string;
   mother: string;
@@ -33,12 +33,12 @@ export type MissingPersonDetail = {
   updatedBy: number | null;
   updatedAt: string | null;
   idSCO: number | null;
-};
+}
 
-export type ApiResponse = {
+export interface ApiResponse {
   content: MissingPerson[];
   totalRecords: number;
   totalPages: number;
   currentPage: number;
   pageSize: number;
-};
+}
